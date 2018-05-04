@@ -3,9 +3,9 @@ import mysql from 'mysql';
 let pool = mysql.createPool({
     connectionLimit: 10,
     host: 'localhost',
-    user: 'exampleUser',
+    user: 'blogapp',
     password: 'password',
-    database: 'InClassExample'
+    database: 'blog'
 });
 
 async function executeQuery(sql, args = []) {

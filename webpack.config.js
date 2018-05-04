@@ -36,6 +36,22 @@ module.exports = {
                         outputPath: 'docs'
                     }
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" }
+                ]
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                    "babel-loader",
+                    {
+                        loader: "react-svg-loader"
+                    }
+                ]
             }
         ]
     },
