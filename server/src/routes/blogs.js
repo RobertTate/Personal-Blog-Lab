@@ -8,6 +8,8 @@ router.get('/', (req, res) => {
 
     blogs.getAll()
     .then(result => {
+        console.log('getting all blogs');
+        console.log(result);
         res.json(result);
     });
 
