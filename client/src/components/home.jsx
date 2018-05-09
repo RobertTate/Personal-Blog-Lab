@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { render } from 'react-dom';
 import ListBlogs from './listblogs';
 import NewBlog from './newblog';
+import * as blogService from '../services/blogservice';
+import AuthButton from './auth/authButton';
 
 
 
@@ -20,10 +22,7 @@ class Home extends Component {
     }
 
     listBlogs() {
-        fetch('/api/blogs', {
-            method: 'GET',
-            contentType: 'application/json'
-        }).then((results) => results.json())
+        blogService.all()
             .then((blogs) => {
                 this.setState({ result: blogs });
             });
@@ -42,7 +41,7 @@ class Home extends Component {
                     <p>Select a blog below to read more</p>
                 </div>
                 <div className="row m-3">
-                <ListBlogs blogs={this.state.result}/>
+                    <ListBlogs blogs={this.state.result} />
                 </div>
             </Fragment>
 

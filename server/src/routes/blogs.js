@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     blogs.getAll()
     .then(result => {
         console.log('getting all blogs');
-        console.log(result);
+        
         res.json(result);
     });
 
@@ -24,6 +24,17 @@ router.get('/:id?', (req, res) => {
 
 });
 
+router.delete('/:id', (req, res) => {
+    let id = req.params.id;
+    blogs.delete(id)
+    .then(result => {
+        res.sendStatus(200);
+    }).catch((err) => {
+        console.log(err)
+    })
+
+});
+
 
 router.post('/', (req, res) => {
     blogs.insert(req.body)
@@ -32,7 +43,7 @@ router.post('/', (req, res) => {
     }).catch((err) => {
         console.log(err)
     })
-})
+});
 
 
 router.put('/:id', (req, res) => {

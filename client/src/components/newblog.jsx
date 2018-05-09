@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import * as blogService from '../services/blogservice';
 
 
 
@@ -14,17 +15,12 @@ class NewBlog extends Component {
     }
 
     handleClick(content, title) {
-        fetch('/api/blogs/', {
-            method: 'POST',
-            body: JSON.stringify({ content, title }),
-            headers: new Headers({
-                'content-type': 'application/json'
-            })
-        }).then((result) => {
-            this.props.history.push('/');
-        }).catch((err) => {
-            console.log(err)
-        });
+        blogService.insert({ content, title })
+            .then((result) => {
+                this.props.history.push('/');
+            }).catch((err) => {
+                console.log(err)
+            });
     }
 
 
@@ -61,10 +57,10 @@ class NewBlog extends Component {
                     <div>
                         <br />
                         <button className="btn btn-light"
-                        onClick={() => {
-                            this.handleClick(this.state.text, this.state.title);
-                        }}
-                        
+                            onClick={() => {
+                                this.handleClick(this.state.text, this.state.title);
+                            }}
+
                         >Submit</button>
                     </div>
                 </div>

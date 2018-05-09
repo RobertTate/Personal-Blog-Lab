@@ -13,8 +13,6 @@ function configurePassport(app) {
         passwordField: 'password',
         session: false,
     }, async (email, password, done) => {
-        console.log(email);
-        console.log(password);
         try {
             // array destructuring. find() will return an array of results.
             // destructuring the first (and hopefully only) result into the user variable

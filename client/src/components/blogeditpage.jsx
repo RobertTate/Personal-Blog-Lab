@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import * as blogService from '../services/blogservice';
 
 class BlogEditPage extends Component {
     constructor(props) {
@@ -12,12 +13,7 @@ class BlogEditPage extends Component {
     }
 
     componentDidMount() {
-        fetch("/api/blogs/" + this.props.match.params.id, {
-            method: 'GET',
-            headers: new Headers({
-                'content-type': 'application/json'
-            })
-        }).then((result) => result.json())
+        blogService.one(this.props.match.params.id)
             .then((blog) => {
                 let content = blog.content;
                 let title = blog.title;
@@ -32,21 +28,16 @@ class BlogEditPage extends Component {
 
 
     handleClick(content, title) {
-        fetch('/api/blogs/' + this.props.match.params.id, {
-            method: 'PUT',
-            body: JSON.stringify({ content, title }),
-            headers: new Headers({
-                'content-type': 'application/json'
-            })
-        }).then((result) => {
-            this.props.history.push('/');
-        }).catch((err) => {
-            console.log(err)
-        });
+        blogService.update(this.props.match.params.id, { content, title })
+            .then((result) => {
+                this.props.history.push('/');
+            }).catch((err) => {
+                console.log(err)
+            });
     }
 
 
-    
+
     handleTitleChange(title) {
         this.setState({ title });
     };
