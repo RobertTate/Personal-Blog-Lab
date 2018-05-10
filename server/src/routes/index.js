@@ -11,10 +11,14 @@ let router = Router();
 
 router.use('/auth', authRouter);
 
-router.route('*')
+router.route('/blogs')
     .post(tokenMiddleware, isLoggedIn)
     .put(tokenMiddleware, isLoggedIn)
     .delete(tokenMiddleware, isLoggedIn);
+
+    router.route('/auth')
+    .post(tokenMiddleware, isLoggedIn)
+
 
 router.use('/blogs', blogsRouter);
 router.use('/users', usersRouter);

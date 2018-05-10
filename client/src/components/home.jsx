@@ -33,7 +33,7 @@ class Home extends Component {
             <Fragment>
                 <div className="m-3 hero">
                     <h1 className="display-4">Bobby Tate</h1>
-                    <p className="lead">A blog project, illustrating the use of React, NodeJS, ExpressJS, and MySQL.</p>
+                    <p className="lead">A blog project illustrating the use of React, NodeJS, ExpressJS, MySQL, Passport, and Bcrypt</p>
                     <hr className="my-4" id="jumbotron-hr" />
                     <p className="lead">
                         <Link className="btn btn-light btn-md" role="button" to={`/new`}><strong>Compose A New Blog</strong></Link>
