@@ -11,7 +11,7 @@ body {
 #jumbotron-hr {
     background-color: white;
     margin-left: 0;
-    margin-right: 15rem;
+    margin-right: 7.5rem;
 }
 
 .card-body {
@@ -24,10 +24,6 @@ body {
 .card-title {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
-}
-
-.btn {
-    align-self: flex-end;
 }
 
 .blog-page {
@@ -61,6 +57,17 @@ body {
     color: white;
 }
 
+.form-control-center {
+    background-color: black;
+    border: none;
+    color: white;
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 25px;
+}
+
 .form-control:focus {
     color: white;
     background-color: black;
@@ -74,4 +81,69 @@ body {
 
 textarea {
     resize: none;
+}
+
+
+#InputElement {
+    background-color: black;
+    width: 60vw;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+}
+
+.hr-style {
+    width: 20rem;
+    height: 1px;
+    border-color: white;
+}
+
+#donate-button {
+    align-self: center;
+}
+
+.btn {
+    align-self: flex-end;
+    border-radius: 4px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+#fixed {
+    display: inline-block;
+    position: absolute;
+}
+
+.vl {
+    display: inline-block;
+    position: fixed;
+    border-right: 1px solid white;
+    top: 140px;
+    right: 10px;
+    height: 25rem;
+    
+}
+
+.vl2 {
+    display: inline-block;
+    position: fixed;
+    border-right: 1px solid white;
+    top: 220px;
+    right: 15px;
+    height: 25rem;
+    
+}
+
+.blue {
+    color: #2eb2ff;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.explanation-box {
+    margin-right: 20px;
 }

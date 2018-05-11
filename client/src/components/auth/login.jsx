@@ -62,7 +62,7 @@ class Login extends Component {
        return (
            <Fragment>
                <div className="blog-page">
-                <p><strong>Please Login for Admin Privileges</strong></p>
+                <p className="lead">Please Login for Admin Privileges</p>
                 <form className="blog-page" onSubmit={(e) => this.login(e)}>
                     <div className="form-group">
                         <input id="email" placeholder="Enter Email Here" className="form-control" type="email" onChange={(e) => this.handleEmailChange(e.target.value)} required /> 

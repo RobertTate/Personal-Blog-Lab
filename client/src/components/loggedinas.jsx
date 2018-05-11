@@ -1,4 +1,4 @@
-//Component not yet built*
+// Component not yet built*
 // import React from 'react';
 // import { Link } from 'react-router-dom';
 // import { isLoggedIn, checkLogin } from '../services/user';

@@ -56,7 +56,7 @@ class NewBlog extends Component {
                     </div>
                     <div>
                         <br />
-                        <button className="btn btn-light"
+                        <button className="btn btn-secondary"
                             onClick={() => {
                                 this.handleClick(this.state.text, this.state.title);
                             }}

@@ -65,7 +65,7 @@ class SignupPage extends Component {
             return (
                 <Fragment>
                     <div className="blog-page">
-                        <p><strong>You are are logged in!</strong></p>
+                        <p className="lead">You are are logged in!</p>
                         <a className="btn btn-secondary" href='/'>Go Back</a>
                     </div>
                 </Fragment>
@@ -75,7 +75,7 @@ class SignupPage extends Component {
         return (
             <Fragment>
                 <div className="blog-page">
-                    <p><strong>Sign Up Below</strong></p>
+                    <p className="lead">Sign Up Below</p>
                     <form className="blog-page" onSubmit={(e) => this.signup(e)}>
                         <div className="form-group">
                             <input id="name" placeholder="Enter Name Here" className="form-control" type="name" onChange={(e) => this.handleNameChange(e.target.value)} required />
