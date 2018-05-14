@@ -4,7 +4,12 @@
 let cfg = {
     MAILGUN_API_KEY: process.env.MAILGUN_API_KEY,
     STRIPE_SK: process.env.STRIPE_SK,
-    masterEmail: process.env.MAILGUN_EMAIL
+    masterEmail: process.env.MAILGUN_EMAIL,
+    DB_HOST: process.env.DB_HOST,
+    DB_USER: process.env.DB_USER,
+    DB_PASS: process.env.DB_PASS,
+    DB_NAME: process.env.DB_NAME
+
 };
 
 export { cfg };
