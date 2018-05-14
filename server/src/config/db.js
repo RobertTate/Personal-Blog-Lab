@@ -1,12 +1,12 @@
 import mysql from 'mysql';
-import { config } from './config'
+import { config } from '../config'
 
 let pool = mysql.createPool({
     connectionLimit: 10,
-    host: 'process.env.DB_HOST',
-    user: 'process.env.DB_USER',
-    password: 'process.env.DB_PASS',
-    database: 'process.env.DB_NAME'
+    host: config.DB_HOST,
+    user: config.DB_USER,
+    password: config.DB_PASS,
+    database: config.DB_NAME
 });
 
 async function executeQuery(sql, args = []) {
