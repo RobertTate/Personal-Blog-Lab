@@ -6,8 +6,6 @@ import stripeDonationsRouter from './stripeDonations';
 import contactRouter from './contactform';
 import { isLoggedIn, tokenMiddleware } from '../middleware/auth.mw';
 
-console.log('tefxcvxcvxcvfghffst');
-
 let router = Router();
 
 router.use('/auth', authRouter);
