@@ -3,7 +3,8 @@
 // Also set the NODE_ENV environment property to "production" (no quotes) in AWS, Heroku, etc.
 let cfg = {
     MAILGUN_API_KEY: process.env.MAILGUN_API_KEY,
-    STRIPE_SK: process.env.STRIPE_SK
+    STRIPE_SK: process.env.STRIPE_SK,
+    masterEmail: process.env.MAILGUN_EMAIL
 };
 
 export { cfg };

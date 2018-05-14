@@ -1,4 +1,4 @@
-import { masterEmail } from '../config/env/development';
+import { config } from '../config';
 import { sendEmail } from '../utils/mail';
 import { Router } from 'express';
 
@@ -10,7 +10,7 @@ router.post('/', (req, res, next) => {
                         Email: ${req.body.email}
                         Message: ${req.body.message}`;
 
-    sendEmail(masterEmail, 'no-reply-mg@covalence.io', 'New Contact Form Submission', messageBody)
+    sendEmail(config.masterEmail, 'no-reply-mg@covalence.io', 'New Contact Form Submission', messageBody)
     .then((response) => {
         res.sendStatus(201);
     }).catch((err) => {
