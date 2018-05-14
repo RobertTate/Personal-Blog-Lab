@@ -23,7 +23,6 @@ router.route('/blogs')
 router.route('/auth')
     .post(tokenMiddleware, isLoggedIn);
 
-
 router.use('/blogs', blogsRouter);
 router.use('/users', usersRouter);
 

@@ -8,38 +8,40 @@ import { checkPassword } from '../utils/security';
 let authorsTable = new Table('authors');
 let tokensTable = new Table('tokens');
 
+
 function configurePassport(app) {
     passport.use(new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
-        session: false,
-    }, async (email, password, done) => {
-        try {
-            // array destructuring. find() will return an array of results.
-            // destructuring the first (and hopefully only) result into the user variable
-            let [author] = await authorsTable.find({ email });
-            if (author && author.hash) {
-                checkPassword(password, author.hash)
-                    .then((matches) => {
-                        if (matches) {
-                            let idObj = tokensTable.insert({
-                                userid: author.id
-                            });
-                            let token = encode(idObj.id);
-                            return done(null, { token });
-                        } else {
-                            return done(null, false, { message: 'Invalid credentials' });
-                        }
-                    }).catch((err) => {
-                        throw err;
-                    });
-            } else {
-                return done(null, false, { message: 'Invalid credentials' });
-            }
-        } catch (err) {
-            return done(err);
-        }
-    }));
+         sessions: false
+     }, (email, password, done) => {
+         authorsTable.find({ email })
+         .then((results) => {
+             return results[0];
+         }).then((author) => {
+             if (author && author.hash) {
+                 checkPassword(password, author.hash) 
+                 .then((matches) => {
+                     if (matches === true) {
+                         tokensTable.insert({
+                             userid: author.id
+                         }).then((idObj) => {
+                             return encode(idObj.id);
+                         }).then((tokenValue) => {
+                             return done(null, {token: tokenValue});
+                         })
+                     } else {
+                         // password is incorrect
+                         return done(null, false, { message: 'Invalid credentials' });
+                     }
+                 }).catch((err) => {return done(null, err);})
+             } else {
+                return done(null, false, {message: 'Invalid loging'});
+             }
+         }).catch((err) => {
+             return done(err);
+         })
+     }));
 
     passport.use(new BearerStrategy(async (token, done) => {
         let tokenId = decode(token);
@@ -50,6 +52,8 @@ function configurePassport(app) {
             let tokenRecord = await tokensTable.getOne(tokenId);
             let user = await authorsTable.getOne(tokenRecord.userid);
             if (user) {
+                console.log('the user');
+                console.log(user);
                 delete user.password;
                 return done(null, user);
             } else {

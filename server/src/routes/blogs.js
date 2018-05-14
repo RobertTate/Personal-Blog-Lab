@@ -37,6 +37,8 @@ router.delete('/:id', (req, res) => {
 
 
 router.post('/', (req, res) => {
+    console.log('posting some blogs');
+    console.log(req.body);
     blogs.insert(req.body)
     .then((result) => {
         res.sendStatus(200); 
