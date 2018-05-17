@@ -31,8 +31,7 @@ class Home extends Component {
     render() {
         return (
             <Fragment>
-                <div className="vl"></div>
-                <div className="vl2"></div>
+                
                 <div className="ml-3 hero">
                     <hr className="mb-2" id="jumbotron-hr" />
                     <h1 className="display-4">Blog Project</h1>

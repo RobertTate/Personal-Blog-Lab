@@ -4,7 +4,9 @@
 }
 
 body {
-    background-color: black;
+    background-image: url('../src/images/streetlights.jpg');
+    background-position: top;
+    background-attachment: fixed;
     color: white;
 }
 
@@ -114,25 +116,6 @@ textarea {
     position: absolute;
 }
 
-.vl {
-    display: inline-block;
-    position: fixed;
-    border-right: 1px solid white;
-    top: 140px;
-    right: 10px;
-    height: 25rem;
-    
-}
-
-.vl2 {
-    display: inline-block;
-    position: fixed;
-    border-right: 1px solid white;
-    top: 220px;
-    right: 15px;
-    height: 25rem;
-    
-}
 
 .blue {
     color: #2eb2ff;
